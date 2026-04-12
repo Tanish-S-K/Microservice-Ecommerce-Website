@@ -1,0 +1,33 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+      routes:
+        - id: user-service
+          uri: http://localhost:8081
+          predicates:
+            - Path=/api/users/**
+        - id: product-service
+          uri: http://localhost:8082
+          predicates:
+            - Path=/api/products/**
+        - id: cart-service
+          uri: http://localhost:8083
+          predicates:
+            - Path=/api/cart/**
+        - id: payment-service
+          uri: http://localhost:8084
+          predicates:
+            - Path=/api/orders/**
+        - id: recommendation-service
+          uri: http://localhost:8085
+          predicates:
+            - Path=/api/recommendations/**
