@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: shopnest-user
+    env: docker
+    dockerContext: backend/user-service
+    plan: free
+
+  - type: web
+    name: shopnest-product
+    env: docker
+    dockerContext: backend/product-service
+    plan: free
+
+  - type: web
+    name: shopnest-cart
+    env: docker
+    dockerContext: backend/cart-service
+    plan: free
+
+  - type: web
+    name: shopnest-payment
+    env: docker
+    dockerContext: backend/payment-service
+    plan: free
+
+  - type: web
+    name: shopnest-recommendation
+    env: docker
+    dockerContext: backend/recommendation-service
+    plan: free
