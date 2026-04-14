@@ -14,10 +14,8 @@ Write-Host "Starting ShopNest Microservices..." -ForegroundColor Cyan
 
 foreach ($service in $services) {
     Write-Host "Launching $($service.Name) on port $($service.Port)..." -ForegroundColor Yellow
-    
-    # Start Maven in a new window
-    Start-Process powershell -ArgumentList "-NoExit", "-Command", "Write-Host 'Starting $($service.Name)...'; cd '$($service.Path)'; mvn spring-boot:run" -WindowStyle Maximized
-    
+    # Start Maven in a new window with JDK 21
+    Start-Process powershell -ArgumentList "-NoExit", "-Command", "`$env:JAVA_HOME='C:\Users\Tanis\.jdks\ms-21.0.10'; `$env:PATH=`$env:JAVA_HOME + '\bin;' + `$env:PATH; Write-Host 'Starting $($service.Name)...'; cd '$($service.Path)'; mvn spring-boot:run" -WindowStyle Maximized
     # Pause briefly to avoid CPU spike
     Start-Sleep -Seconds 2
 }
