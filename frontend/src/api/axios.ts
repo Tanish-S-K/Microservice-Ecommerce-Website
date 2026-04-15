@@ -2,6 +2,9 @@ import axios from 'axios';
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL || '',
+  headers: {
+    'ngrok-skip-browser-warning': 'true' // Bypass ngrok HTML intercept on GET requests
+  }
 });
 
 api.interceptors.request.use((config) => {
