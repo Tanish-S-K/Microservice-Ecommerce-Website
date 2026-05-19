@@ -1,4 +1,4 @@
-# ShopNest
+# ShopNest[Backend is deployed in custom server(Available only on request)]
 
 ## 1. Project Overview
 ShopNest is a full-stack e-commerce application built with React + TypeScript on the frontend and Spring Boot microservices on the backend, using MongoDB Atlas for data storage.
